@@ -1,0 +1,14 @@
+.DS_Store
+.pmd
+.project
+.settings
+.classpath
+.idea.xml
+.idea
+*.iml
+*.class
+*.log
+*.log.*
+target
+*test-output*
+bin/
