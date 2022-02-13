@@ -1,0 +1,39 @@
+官方题解总是令人看不懂，这里附上自己的易懂写法。
+
+### 代码
+
+* java
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        //用来保存当前节点的前一个节点，供下次循环使用
+        ListNode preNode = null;
+        //用来保存当前节点的下一个节点的临时变量
+        ListNode nextNode = null;
+        //以1->2->3->4为例
+        while (head != null) {
+            //第一遍循环，head=1,nextNode=1.next即2；       第二遍循环，head=2,nextNode=2.next即3
+            nextNode = head.next;
+            //第一遍循环，1.next=null                       第二遍循环，2.next=1，完成反转
+            head.next = preNode;
+            //第一遍循环，preNode=1                         第二遍循环，preNode=2 
+            preNode = head;
+            //第一遍循环，当前节点指向nextNode为2节点         第二遍循环，当前节点指向nextNode为3节点
+            head = nextNode;
+        }
+        return preNode;
+    }
+}
+```
+
