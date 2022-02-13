@@ -59,13 +59,34 @@ public class SquaresOfASortedArray {
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        public int[] sortedSquares(int[] nums) {
+        public int[] sortedSquaresV1(int[] nums) {
             int[] res = new int[nums.length];
             for (int i = 0; i < nums.length; i++) {
                 res[i] = nums[i] * nums[i];
             }
 
             Arrays.sort(res);
+            return res;
+        }
+
+        public int[] sortedSquares(int[] nums) {
+            int len = nums.length;
+            int[] res = new int[len];
+            int pos = len - 1;
+
+            int left = 0, right = len - 1;
+            while (left <= right) {
+                int leftSquare = nums[left] * nums[left];
+                int rightSquare = nums[right] * nums[right];
+                if (leftSquare <= rightSquare) {
+                    res[pos--] = rightSquare;
+                    right--;
+                } else {
+                    res[pos--] = leftSquare;
+                    left++;
+                }
+            }
+
             return res;
         }
     }

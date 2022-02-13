@@ -3,8 +3,6 @@
 .project
 .settings
 .classpath
-.idea.xml
-.idea
 *.iml
 *.class
 *.log
