@@ -87,6 +87,6 @@ public class SearchInsertPosition {
             return target > nums[left] ? left + 1 : left;
         }
     }
-//leetcode submit region end(Prohibit modification and deletion)
+    //leetcode submit region end(Prohibit modification and deletion)
 
 }

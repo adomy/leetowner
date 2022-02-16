@@ -25,20 +25,24 @@
 //
 // 
 // n == height.length 
-// 0 <= n <= 3 * 104 
-// 0 <= height[i] <= 105 
+// 1 <= n <= 2 * 10⁴ 
+// 0 <= height[i] <= 10⁵ 
 // 
-// Related Topics 栈 数组 双指针 动态规划 
-// 👍 2175 👎 0
+// Related Topics 栈 数组 双指针 动态规划 单调栈 👍 3102 👎 0
 
 
 package leetcode.editor.cn;
 
+/**
+ * leetcode code
+ * question name: 接雨水
+ * question id: 42
+ */
 public class TrappingRainWater {
 
     /**
-     * main函数
-     **/
+     * main method
+     */
     public static void main(String[] args) {
         Solution solution = new TrappingRainWater().new Solution();
     }

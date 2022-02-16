@@ -52,13 +52,14 @@ public class MoveZeroes {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public void moveZeroes(int[] nums) {
-            int left = 0; // 处理好的的最后一个非0的下一位（0）
-            int right = 0; // 待处理的第一位
+            int left = 0; // 处理好的序列的下一位
+            int right = 0; // 未处理的序列的第一个0
             while (right < nums.length) {
                 if (nums[right] != 0) {
-                    int temp = nums[left];
+                    int tmp = nums[left];
                     nums[left] = nums[right];
-                    nums[right] = temp;
+                    nums[right] = tmp;
+
                     left++;
                 }
 

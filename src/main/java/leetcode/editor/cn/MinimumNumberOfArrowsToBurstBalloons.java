@@ -69,7 +69,6 @@ public class MinimumNumberOfArrowsToBurstBalloons {
         Solution solution = new MinimumNumberOfArrowsToBurstBalloons().new Solution();
         int[][] points = {{1, 2}, {3, 4}, {5, 6}, {7, 8}};
         int minArrowShots = solution.findMinArrowShots(points);
-        System.out.println(minArrowShots);
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)

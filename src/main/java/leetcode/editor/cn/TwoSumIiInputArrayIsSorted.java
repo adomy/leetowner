@@ -60,29 +60,27 @@ public class TwoSumIiInputArrayIsSorted {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int[] twoSum(int[] numbers, int target) {
-            int[] vs = new int[2];
+            int[] res = new int[2];
 
-            int s = 0;
-            int e = numbers.length - 1;
-            while (s < numbers.length && e >= 0 && s < e) {
-                int sv = numbers[s];
-                int ev = numbers[e];
-                int sum = sv + ev;
-                if (sum > target) {
-                    e--;
-                } else if (sum < target) {
-                    s++;
+            int left = 0;
+            int right = numbers.length - 1;
+            while (left < right) {
+                int tmp = numbers[left] + numbers[right];
+                if (tmp > target) {
+                    right--;
+                } else if (tmp < target) {
+                    left++;
                 } else {
-                    vs[0] = s + 1;
-                    vs[1] = e + 1;
                     break;
                 }
             }
 
-            return vs;
+            res[0] = left + 1;
+            res[1] = right + 1;
+            return res;
         }
 
     }
-//leetcode submit region end(Prohibit modification and deletion)
+    //leetcode submit region end(Prohibit modification and deletion)
 
 }

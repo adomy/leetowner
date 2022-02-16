@@ -49,8 +49,6 @@
 package leetcode.editor.cn;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * leetcode test.
@@ -80,7 +78,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
                         Arrays.fill(charArray, false);
                         break;
                     } else {
-                        charArray[c] =true;
+                        charArray[c] = true;
                         if (end - begin + 1 > maxLen) {
                             maxLen = end - begin + 1;
                             maxBegin = begin;

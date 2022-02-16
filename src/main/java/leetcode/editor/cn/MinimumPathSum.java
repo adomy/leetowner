@@ -44,7 +44,6 @@ public class MinimumPathSum {
         Solution solution = new MinimumPathSum().new Solution();
         int[][] grid = {{1, 3, 1}, {1, 5, 1}, {4, 2, 1}};
         int i = solution.minPathSum(grid);
-        System.out.println(i);
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)

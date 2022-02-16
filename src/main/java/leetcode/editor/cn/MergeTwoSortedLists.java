@@ -38,8 +38,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.List;
-
 /**
  * leetcode test.
  */

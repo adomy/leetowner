@@ -63,7 +63,6 @@ public class RemoveNthNodeFromEndOfList {
         solution.removeNthFromEnd(head, 2);
 
         while (head != null) {
-            System.out.println(head.val);
             head = head.next;
         }
     }
@@ -115,7 +114,7 @@ public class RemoveNthNodeFromEndOfList {
             return head;
         }
     }
-//leetcode submit region end(Prohibit modification and deletion)
+    //leetcode submit region end(Prohibit modification and deletion)
 
     public static class ListNode {
         int val;

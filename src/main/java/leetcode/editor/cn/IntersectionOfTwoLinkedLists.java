@@ -167,7 +167,7 @@ public class IntersectionOfTwoLinkedLists {
             return null;
         }
     }
-//leetcode submit region end(Prohibit modification and deletion)
+    //leetcode submit region end(Prohibit modification and deletion)
 
     public static class ListNode {
         int val;

@@ -37,6 +37,8 @@
 
 package leetcode.editor.cn;
 
+import java.util.Stack;
+
 /**
  * leetcode test.
  */
@@ -52,9 +54,37 @@ public class DailyTemperatures {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int[] dailyTemperatures(int[] temperatures) {
-            return null;
+            int[] res = new int[temperatures.length];
+
+            Stack<Integer> stack = new Stack<>();
+
+            for (int i = 0; i < temperatures.length; i++) {
+                if (stack.isEmpty()) {
+                    stack.push(i);
+                    continue;
+                }
+
+                int top = stack.peek();
+                int target = temperatures[i];
+                while (!stack.isEmpty() && temperatures[top] < target) {
+                    res[top] = i - top;
+                    stack.pop();
+
+                    if (!stack.isEmpty()) {
+                        top = stack.peek();
+                    }
+                }
+
+                stack.push(i);
+            }
+
+            while (!stack.isEmpty()) {
+                res[stack.pop()] = 0;
+            }
+
+            return res;
         }
     }
-//leetcode submit region end(Prohibit modification and deletion)
+    //leetcode submit region end(Prohibit modification and deletion)
 
 }

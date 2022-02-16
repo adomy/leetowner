@@ -80,11 +80,9 @@ public class ReverseNodesInKGroup {
         n2.next = n3;
         n3.next = n4;
         n4.next = n5;
-//        n5.next = n6;
 
         ListNode listNode = solution.reverseKGroup(n1, 2);
         while (listNode != null) {
-            System.out.println(listNode.val);
             listNode = listNode.next;
         }
     }
@@ -135,7 +133,7 @@ public class ReverseNodesInKGroup {
                 }
             }
 
-            if (len < k ) {
+            if (len < k) {
                 if (prevSubLast != null) {
                     prevSubLast.next = currSubHead;
                 }

@@ -47,6 +47,9 @@
 
 package leetcode.editor.cn;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * leetcode test.
  */
@@ -62,7 +65,12 @@ public class DistributeCandies {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int distributeCandies(int[] candyType) {
-            return 0;
+            Set<Integer> sets = new HashSet<>();
+            for (int candy : candyType) {
+                sets.add(candy);
+            }
+
+            return Math.min(candyType.length / 2, sets.size());
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

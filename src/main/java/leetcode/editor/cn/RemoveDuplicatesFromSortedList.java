@@ -76,7 +76,7 @@ public class RemoveDuplicatesFromSortedList {
             return head;
         }
     }
-//leetcode submit region end(Prohibit modification and deletion)
+    //leetcode submit region end(Prohibit modification and deletion)
 
     public static class ListNode {
         int val;
