@@ -790,6 +790,17 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/MiddleOfTheLinkedList.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/MiddleOfTheLinkedList.md" />
+              <option name="frontendQuestionId" value="leetcode-cn.com876" />
+              <option name="host" value="leetcode-cn.com" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/MiddleOfTheLinkedList.java" />
+              <option name="titleSlug" value="middle-of-the-linked-list" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/MinCostClimbingStairs.java">
           <value>
             <LeetcodeEditor>
@@ -1078,6 +1089,17 @@
               <option name="host" value="leetcode-cn.com" />
               <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/ReverseString.java" />
               <option name="titleSlug" value="reverse-string" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/ReverseWordsInAStringIii.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/ReverseWordsInAStringIii.md" />
+              <option name="frontendQuestionId" value="leetcode-cn.com557" />
+              <option name="host" value="leetcode-cn.com" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/ReverseWordsInAStringIii.java" />
+              <option name="titleSlug" value="reverse-words-in-a-string-iii" />
             </LeetcodeEditor>
           </value>
         </entry>
