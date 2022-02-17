@@ -60,14 +60,8 @@ public class LongestPalindromicSubstring {
     class Solution {
 
         /**
-         * f(i, j) = f(i+1, j-1) && x[i] == x[j]
-         * <p>
-         * 做动态规划的三个核心点：
-         * * 确定核心变量，并将之与位置关联起来
-         * * 确定转移表达式
-         * * 确定索引位置的前进方向
-         * <p>
-         * 取决于该问题是否能用动态规划解决的是这些”小问题“会不会被被重复调用。
+         * d 表示i/j之间的距离
+         * 然后从i开始，d从0到len，进行处置
          *
          * @param s
          * @return
@@ -80,7 +74,7 @@ public class LongestPalindromicSubstring {
 
             // i表示字符串开始位置
             // j表示字符串结束位置
-            // t表示i,j之间的距离
+            // d表示i,j之间的距离
             for (int d = 0; d < len; d++) {
                 for (int i = 0; i + d < len; i++) {
                     int j = i + d;

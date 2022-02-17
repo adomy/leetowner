@@ -62,8 +62,28 @@ public class LongestIncreasingSubsequence {
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+
+        // dp[i] = max(dp[j]) + 1 (for j < i 同时 num[i] > nums[j])
         public int lengthOfLIS(int[] nums) {
-            return 0;
+            if (nums.length == 0) {
+                return 0;
+            }
+
+            int[] dp = new int[nums.length];
+            dp[0] = 1;
+            int maxAns = 1;
+            for (int i = 1; i < nums.length; i++) {
+                dp[i] = 1;
+                for (int j = 0; j < i; j++) {
+                    if (nums[i] > nums[j]) {
+                        dp[i] = Math.max(dp[i], dp[j] + 1);
+                    }
+                }
+
+                maxAns = Math.max(maxAns, dp[i]);
+            }
+
+            return maxAns;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

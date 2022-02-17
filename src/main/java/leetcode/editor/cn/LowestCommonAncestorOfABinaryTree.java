@@ -75,17 +75,19 @@ public class LowestCommonAncestorOfABinaryTree {
      */
     class Solution {
         public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+            // 先把所有节点和它的父节点映射起来
             Map<TreeNode, TreeNode> map = new HashMap<>();
             dfs(root, map);
 
+            // 从p开始，向上找到所有父节点组成的set
             Set<TreeNode> pSet = new HashSet<>();
-
             TreeNode pA = p;
             while (pA != null) {
                 pSet.add(pA);
                 pA = map.get(pA);
             }
 
+            // 从q开始，向上找父节点，找到存在set中的节点，就直接返回
             TreeNode qA = q;
             while (qA != null) {
                 if (pSet.contains(qA)) {

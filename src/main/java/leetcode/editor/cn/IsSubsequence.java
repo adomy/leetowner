@@ -58,7 +58,18 @@ public class IsSubsequence {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean isSubsequence(String s, String t) {
-            return false;
+            int n = s.length();
+            int m = t.length();
+            int i = 0;
+            int j = 0;
+            while (i < n && j < m) {
+                if (s.charAt(i) == t.charAt(j)) {
+                    i++;
+                }
+                j++;
+            }
+
+            return i == n;
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)

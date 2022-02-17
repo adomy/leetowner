@@ -64,8 +64,10 @@ public class LinkedListCycle {
         Solution solution = new LinkedListCycle().new Solution();
     }
 
-    //Definition for singly-linked list.
-    class ListNode {
+    /**
+     * Definition for singly-linked list.
+     */
+    public static class ListNode {
         int val;
         ListNode next;
 

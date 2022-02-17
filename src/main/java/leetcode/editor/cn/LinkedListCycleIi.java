@@ -104,12 +104,12 @@ public class LinkedListCycleIi {
             return slow;
         }
     }
-//leetcode submit region end(Prohibit modification and deletion)
+    //leetcode submit region end(Prohibit modification and deletion)
 
     /**
      * Definition for singly-linked list.
      */
-    public class ListNode {
+    public static class ListNode {
         int val;
         ListNode next;
 
