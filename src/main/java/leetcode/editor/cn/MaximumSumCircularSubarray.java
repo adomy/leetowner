@@ -67,12 +67,22 @@ public class MaximumSumCircularSubarray {
      */
     public static void main(String[] args) {
         Solution solution = new MaximumSumCircularSubarray().new Solution();
+        int i = solution.maxSubarraySumCircular(new int[]{1, -2, 3, -2});
+        System.out.println(i);
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int maxSubarraySumCircular(int[] nums) {
-            return 0;
+            int total = 0, maxSum = nums[0], curMax = 0, minSum = nums[0], curMin = 0;
+            for (int a : nums) {
+                curMax = Math.max(curMax + a, a);
+                maxSum = Math.max(maxSum, curMax);
+                curMin = Math.min(curMin + a, a);
+                minSum = Math.min(minSum, curMin);
+                total += a;
+            }
+            return maxSum > 0 ? Math.max(maxSum, total - minSum) : maxSum;
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)

@@ -47,12 +47,35 @@ public class JumpGame {
      */
     public static void main(String[] args) {
         Solution solution = new JumpGame().new Solution();
+        boolean b = solution.canJump(new int[]{2, 0, 0});
+        System.out.println(b);
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+
+        /**
+         * f[j] = f[i] && (j-i <= a[i])
+         * <p>
+         * 初始化：
+         * f[0] = true;
+         *
+         * @param nums
+         * @return
+         */
         public boolean canJump(int[] nums) {
-            return false;
+            boolean[] res = new boolean[nums.length];
+            res[0] = true;
+            for (int j = 1; j < nums.length; j++) {
+                res[j] = false;
+                for (int i = 0; i < j; i++) {
+                    if (!res[j]) {
+                        res[j] = res[i] && (j - i <= nums[i]);
+                    }
+                }
+            }
+
+            return res[nums.length - 1];
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)
