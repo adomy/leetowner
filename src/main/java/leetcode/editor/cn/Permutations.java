@@ -38,6 +38,7 @@
 
 package leetcode.editor.cn;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -55,7 +56,27 @@ public class Permutations {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public List<List<Integer>> permute(int[] nums) {
-            return null;
+            List<List<Integer>> res = new ArrayList<>();
+            List<Integer> path = new ArrayList<>();
+            find(nums, path, res);
+            return res;
+        }
+
+        private void find(int[] nums, List<Integer> path, List<List<Integer>> res) {
+            if (path.size() == nums.length) {
+                res.add(new ArrayList<>(path));
+                return;
+            }
+
+            for (int num : nums) {
+                if (path.contains(num)) {
+                    continue;
+                }
+
+                path.add(num);
+                find(nums, path, res);
+                path.remove(path.size() - 1);
+            }
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)

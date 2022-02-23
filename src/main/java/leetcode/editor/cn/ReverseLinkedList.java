@@ -69,7 +69,32 @@ public class ReverseLinkedList {
      * }
      */
     class Solution {
+
+        // 0. nil->x->y->z
+        //         |
+        // 1. nil<-x->y->z
+        //            |
+        // 2. nil<-x-<y<-z
         public ListNode reverseList(ListNode head) {
+            ListNode before = null;
+            ListNode current = head;
+
+            ListNode newHead = head;
+            while (current != null) {
+                ListNode after = current.next;
+                if (after != null) {
+                    newHead = after;
+                }
+
+                current.next = before;
+                before = current;
+                current = after;
+            }
+
+            return newHead;
+        }
+
+        public ListNode reverseListV2(ListNode head) {
             ListNode prev = null;
             ListNode curr = head;
 

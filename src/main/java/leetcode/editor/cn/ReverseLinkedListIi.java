@@ -46,6 +46,18 @@ public class ReverseLinkedListIi {
      */
     public static void main(String[] args) {
         Solution solution = new ReverseLinkedListIi().new Solution();
+        ListNode node1 = new ListNode(1);
+        ListNode node2 = new ListNode(2);
+        ListNode node3 = new ListNode(3);
+        ListNode node4 = new ListNode(4);
+        ListNode node5 = new ListNode(5);
+
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = node5;
+
+        solution.reverseBetween(node1, 2, 4);
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
@@ -61,13 +73,67 @@ public class ReverseLinkedListIi {
      * }
      */
     class Solution {
+
+
+        // 0. nil->x->y->z
+        //         |
+        // 1. nil<-x->y->z
+        //            |
+        // 2. nil<-x-<y<-z
         public ListNode reverseBetween(ListNode head, int left, int right) {
-            return null;
+            if (head == null) {
+                return null;
+            }
+
+            if (left == right) {
+                return head;
+            }
+
+            ListNode before = null;
+            ListNode current = head;
+
+            int index = 1;
+
+            // 先推进至left节点（left为子链表的头）
+            while (index < left) {
+                before = current;
+                current = current.next;
+                index++;
+            }
+
+            // 这里要做一个记录，记录两个信息， beforeLeftNode.next = newSubHeadNode;
+            // 1. 以left为头部的链表的前一个节点
+            ListNode beforeLeftNode = before;
+            // 2. 记录子链表的头部信息，为left
+            ListNode subHeadNode = current;
+
+            // 继续往后面搜索处理，一直到right
+            ListNode newSubHeadNode = current;
+            while (index < right) {
+                ListNode after = current.next; // 找到下一跳
+                if (after != null) {
+                    newSubHeadNode = after;
+                }
+
+                current.next = before; // 反转，current.next指向原来的前节点
+                before = current; // 前节点后移
+                current = after; // 当前节点后移
+                index++;
+            }
+
+            subHeadNode.next = newSubHeadNode.next;
+            newSubHeadNode.next = before;
+            if (beforeLeftNode != null) {
+                beforeLeftNode.next = newSubHeadNode;
+                return head;
+            } else {
+                return newSubHeadNode;
+            }
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)
 
-    public class ListNode {
+    public static class ListNode {
         int val;
         ListNode next;
 
