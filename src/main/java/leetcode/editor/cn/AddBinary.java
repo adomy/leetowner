@@ -28,6 +28,9 @@
 
 package leetcode.editor.cn;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 /**
  * leetcode
  * 题目标题: 二进制求和
@@ -36,12 +39,67 @@ package leetcode.editor.cn;
 public class AddBinary {
     public static void main(String[] args) {
         Solution solution = new AddBinary().new Solution();
+        System.out.println(0 + '0');
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public String addBinary(String a, String b) {
-            return null;
+
+            Deque<Character> retStack = new ArrayDeque<>();
+
+            int aLen = a.length();
+            int bLen = b.length();
+
+            char[] aChars = a.toCharArray();
+            char[] bChars = b.toCharArray();
+
+            int carry = 0;
+            int index = 1;
+            while (index <= aLen && index <= bLen) {
+                int aCh = aChars[aLen - index] - '0';
+                int bCh = bChars[bLen - index] - '0';
+                int sum = aCh + bCh + carry;
+
+                int rChVal = sum % 2;
+                carry = sum / 2;
+                retStack.push((char) (rChVal + '0'));
+
+                index++;
+            }
+
+            while (index <= aLen) {
+                int aCh = aChars[aLen - index] - '0';
+                int sum = aCh + carry;
+
+                int rChVal = sum % 2;
+                carry = sum / 2;
+                retStack.push((char) (rChVal + '0'));
+
+                index++;
+            }
+
+            while (index <= bLen) {
+                int bCh = bChars[bLen - index] - '0';
+                int sum = bCh + carry;
+
+                int rChVal = sum % 2;
+                carry = sum / 2;
+                retStack.push((char) (rChVal + '0'));
+
+                index++;
+            }
+
+            if (carry != 0) {
+                retStack.push('1');
+            }
+
+            StringBuilder sb = new StringBuilder();
+            while (!retStack.isEmpty()) {
+                sb.append(retStack.pop());
+            }
+
+            return sb.toString();
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

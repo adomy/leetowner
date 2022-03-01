@@ -42,6 +42,7 @@
 
 package leetcode.editor.cn;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -57,7 +58,32 @@ public class AllPathsFromSourceToTarget {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
-            return null;
+            int len = graph.length;
+
+            List<List<Integer>> resList = new ArrayList<>();
+
+            List<Integer> path = new ArrayList<>();
+            path.add(0);
+
+            findPath(0, len - 1, graph, path, resList);
+
+            return resList;
+        }
+
+        private void findPath(int from, int to, int[][] graph, List<Integer> path, List<List<Integer>> resList) {
+            int[] candidates = graph[from];
+            for (int candidate : candidates) {
+                if (path.contains(candidate)) {
+                    continue;
+                }
+
+                path.add(candidate);
+                if (candidate == to) {
+                    resList.add(new ArrayList<>(path));
+                }
+                findPath(candidate, to, graph, path, resList);
+                path.remove(path.size() - 1);
+            }
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

@@ -31,6 +31,8 @@
 
 package leetcode.editor.cn;
 
+import java.util.Arrays;
+
 /**
  * leetcode
  * 题目标题: 把数组排成最小的数
@@ -44,7 +46,21 @@ public class BaShuZuPaiChengZuiXiaoDeShuLcof {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public String minNumber(int[] nums) {
-            return null;
+            String[] strs = new String[nums.length];
+            for (int i = 0; i < nums.length; i++) {
+                strs[i] = String.valueOf(nums[i]);
+            }
+
+            Arrays.sort(strs, (x, y) ->
+                    (x + y).compareTo(y + x)
+            );
+
+            StringBuilder sb = new StringBuilder();
+            for (String str : strs) {
+                sb.append(str);
+            }
+
+            return sb.toString();
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
