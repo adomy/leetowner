@@ -39,7 +39,7 @@ public class AddFromOne2N {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int sumNums(int n) {
-            return 0;
+            return n == 0 ? 0 : n + sumNums(n - 1);
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

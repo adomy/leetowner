@@ -2419,13 +2419,13 @@
             </LeetcodeEditor>
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/Qiu12nLcof.java">
+        <entry key="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/AddFromOne2N.java">
           <value>
             <LeetcodeEditor>
               <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/Qiu12nLcof.md" />
               <option name="frontendQuestionId" value="leetcode-cn.com剑指 Offer 64" />
               <option name="host" value="leetcode-cn.com" />
-              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/Qiu12nLcof.java" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/AddFromOne2N.java" />
               <option name="titleSlug" value="qiu-12n-lcof" />
             </LeetcodeEditor>
           </value>

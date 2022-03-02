@@ -34,7 +34,23 @@ public class BaShuZiFanYiChengZiFuChuanLcof {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int translateNum(int num) {
-            return 0;
+            if (num == 0) {
+                return 1;
+            }
+
+            return dp(num);
+        }
+
+        private int dp(int num) {
+            if (num < 10) {
+                return 1;
+            }
+
+            if (num % 100 > 9 && num % 100 < 26) {
+                return dp(num / 10) + dp(num / 100);
+            } else {
+                return dp(num / 10);
+            }
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
