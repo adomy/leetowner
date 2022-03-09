@@ -29,6 +29,9 @@
 
 package leetcode.editor.cn;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * leetcode
  * 题目标题: 扑克牌中的顺子
@@ -37,12 +40,31 @@ package leetcode.editor.cn;
 public class BuKePaiZhongDeShunZiLcof {
     public static void main(String[] args) {
         Solution solution = new BuKePaiZhongDeShunZiLcof().new Solution();
+        boolean straight = solution.isStraight(new int[]{0, 0, 1, 2, 5});
+        System.out.println(straight);
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean isStraight(int[] nums) {
-            return false;
+            Set<Integer> numSet = new HashSet<>();
+
+            int ghostNum = 0;
+            int max = 0;
+            int min = 14;
+            for (int num : nums) {
+                if (num == 0) {
+                    ghostNum++;
+                    continue;
+                }
+
+                numSet.add(num);
+                max = Math.max(max, num);
+                min = Math.min(min, num);
+            }
+
+
+            return numSet.size() + ghostNum == nums.length && max - min < nums.length;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

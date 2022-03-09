@@ -62,6 +62,9 @@
 
 package leetcode.editor.cn;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 /**
  * leetcode
  * 题目标题: 二叉搜索树迭代器
@@ -89,16 +92,29 @@ public class BinarySearchTreeIterator {
      */
     class BSTIterator {
 
-        public BSTIterator(TreeNode root) {
+        private TreeNode current;
 
+        private Deque<TreeNode> stack;
+
+        public BSTIterator(TreeNode root) {
+            stack = new ArrayDeque<>();
+            current = root;
         }
 
         public int next() {
-            return 0;
+            while (current != null) {
+                stack.push(current);
+                current = current.left;
+            }
+
+            current = stack.pop();
+            int ret = current.val;
+            current = current.right;
+            return ret;
         }
 
         public boolean hasNext() {
-            return true;
+            return current != null || !stack.isEmpty();
         }
     }
 

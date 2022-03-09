@@ -70,8 +70,27 @@ public class BinaryTreePruning {
      */
     class Solution {
         public TreeNode pruneTree(TreeNode root) {
-            return null;
+            return containsOne(root) ? root : null;
         }
+
+        public boolean containsOne(TreeNode node) {
+            if (node == null) {
+                return false;
+            }
+
+            boolean left = containsOne(node.left);
+            boolean right = containsOne(node.right);
+            if (!left) {
+                node.left = null;
+            }
+
+            if (!right) {
+                node.right = null;
+            }
+
+            return node.val == 1 || left || right;
+        }
+
     }
 //leetcode submit region end(Prohibit modification and deletion)
 
