@@ -33,6 +33,12 @@
 
 package leetcode.editor.cn;
 
+import org.checkerframework.checker.units.qual.A;
+
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -57,7 +63,42 @@ public class CongShangDaoXiaDaYinErChaShuIiiLcof {
      */
     class Solution {
         public List<List<Integer>> levelOrder(TreeNode root) {
-            return null;
+            if (root == null) {
+                return new ArrayList<>();
+            }
+
+            List<List<Integer>> resList = new ArrayList<>();
+
+            boolean reverse = false;
+            Deque<TreeNode> queue = new ArrayDeque<>();
+            queue.add(root);
+            while (!queue.isEmpty()) {
+                int size = queue.size();
+
+                Deque<Integer> intList = new ArrayDeque<>();
+                for (int i = 0; i < size; i++) {
+                    TreeNode node = queue.poll();
+
+                    if (reverse) {
+                        intList.addFirst(node.val);
+                    } else {
+                        intList.addLast(node.val);
+                    }
+
+                    if (node.left != null) {
+                        queue.offer(node.left);
+                    }
+
+                    if (node.right != null) {
+                        queue.offer(node.right);
+                    }
+                }
+
+                resList.add(new ArrayList<>(intList));
+                reverse = !reverse;
+            }
+
+            return resList;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
